@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Haberdash</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
+
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+          <div >
+            <h1>Haberdash</h1> 
+          </div>
+          <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+          <nav>
+            <ul class="nav-links">
+              <li><a href="#shop">Shop</a></li>
+              <li><a href="#all products">Products</a></li>
+              <li><a href="#featured-products">Featured products</a></li>
+              <li><a href="#footer">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    
+    <!-- Hero Section -->
+    <section class="hero-section" id="shop">
+        <div class="hero-content">
+            <img src="images/photo1.png" alt="Colorful threads and fruits" class="hero-image">
+          
+            <div class="text-content">
+                <h1>Add color to your masterpiece</h1>
+                <button class="btn btn-primary">  <a href="#featured-products"> Shop Now</a></button> 
+            </div>
+        </div>
+    </section>
+    
+    <!-- Product Section -->
+    <section class="row product-section" id="all products">
+        <div class="product">
+            <img src="images/glide.png" alt="Thread">
+            <h3>GLIDE</h3>
+        </div>
+        <div class="product">
+            <img src="images/magentic.png" alt="Bobbin">
+            <h3>Magnetic Core Bobbin</h3>
+        </div>
+        <div class="product">
+            <img src="images/stabilizer.png" alt="Stabilizer">
+            <h3>Premium Stabilizer</h3>
+        </div>
+    </section>
+
+    <section class="featured-products" id="featured-products">
+        <h2>Featured Products</h2>
+        <div class="glide">
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+              <li class=" glide__slide">
+                <img src="images/embroidery.png" alt="Embroidery Stabilizer">
+                <p>Embroidery Stabilizer</p>
+              </li>
+              <li class="glide__slide">
+                <img src="images/elephant.png" alt="Cubbie Grey Elephant">
+                <p>Cubbie Grey Elephant</p>
+              </li>
+              <li class="glide__slide">
+                <img src="images/cupcheer.png" alt="Kimberbell Cup of Cheer">
+                <p>Kimberbell Cup of Cheer</p>
+              </li>
+              <li class="glide__slide">
+                <img src="images/cupcheer.png" alt="Kimberbell Two Scoops">
+                <p>Kimberbell Two Scoops</p>
+              </li>
+            </ul>
+          </div>
+         
+          <div class="glide__arrows" data-glide-el="controls">
+            <button class="glide__arrow glide__arrow--left" data-glide-dir="<"></button>
+            <button class="glide__arrow glide__arrow--right" data-glide-dir=">"></button>
+          </div>
+        </div>
+      </section>
+
+<!-- Footer -->
+<footer class="main-footer" id="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="about">
+          <h3>About Us</h3>
+          <p>We provide premium embroidery tools and supplies for your creative needs.</p>
+        </div>
+        <div class="quick-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="contact">
+          <h3>Contact</h3>
+          <p>Email: support@haberdash.com</p>
+          <p>Phone: +1 234 567 890</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Haberdash. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+      
+      <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
+
+</body>
+</html>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+       
+        const glide = new Glide(".glide", {
+            type: "carousel",
+            startAt: 0,
+            perView: 3, 
+            breakpoints: {
+                1024: { perView: 2 }, 
+                768: { perView: 1 },  
+            },
+        });
+        glide.mount(); 
+    });
+  </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+     
+      const toggleButton = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      toggleButton.addEventListener("click", () => {
+          navLinks.classList.toggle("active");
+      });
+
+      
+      document.addEventListener("click", (event) => {
+          if (!event.target.closest(".menu-toggle") && !event.target.closest(".nav-links")) {
+              navLinks.classList.remove("active");
+          }
+      });
+  });
+</script>
